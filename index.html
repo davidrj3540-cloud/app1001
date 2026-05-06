@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>Sistema</title>
+    <link rel="stylesheet" href="style.css?v=11" />
+  </head>
+  <body>
+  <!-- ===== BIENVENIDA (NO TOCA TU APP) ===== -->
+<div id="welcomeOverlay" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+">
+
+  <div style="
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.2s forwards;
+  ">
+    <h1 style="color:white; font-size:40px;">Bienvenido</h1>
+    <p style="color:#cbd5e1;">Puedes Continuar</p>
+
+    <button id="welcomeContinueButton" type="button" onclick="cerrarBienvenida()" style="
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: #3b82f6;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    ">
+      Continuar
+    </button>
+  </div>
+</div>
+    <main class="app">
+      <section class="panel">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Como tan muchacho</p>
+            <h1>Sistema</h1>
+          </div>
+          <span id="connectionStatus" class="status-pill">En vivo</span>
+        </div>
+
+        <div class="tabs" aria-label="Secciones">
+          <button class="tab-button is-active" type="button" data-view="studentsView">Estudiantes</button>
+          <button class="tab-button" type="button" data-view="communityView">Comunidad</button>
+          <button class="tab-button" type="button" data-view="tasksView">Tareas</button>
+          <button class="tab-button" type="button" data-view="scheduleView">Horarios</button>
+        </div>
+
+        <section id="studentsView" class="view-section">
+          <div class="summary" aria-label="Resumen de estudiantes">
+            <article>
+              <strong id="totalCount">32</strong>
+              <span>estudiantes</span>
+            </article>
+          </div>
+
+          <label class="search-box" for="searchInput">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Buscar estudiante"
+              autocomplete="off"
+            />
+          </label>
+
+          <p id="message" class="message" aria-live="polite"></p>
+          <ul id="studentList" class="student-list">
+            <li class="student-item"><span class="avatar">01</span><span class="student-name">Araujo Jimenez Deiby</span></li>
+            <li class="student-item"><span class="avatar">02</span><span class="student-name">Arevalo Caita Juan Andres</span></li>
+            <li class="student-item"><span class="avatar">03</span><span class="student-name">Barragan Silva Luis Fernando</span></li>
+            <li class="student-item"><span class="avatar">04</span><span class="student-name">Barrantes Castro Juan Esteban</span></li>
+            <li class="student-item"><span class="avatar">05</span><span class="student-name">Coneo Rojas Kleber Andres</span></li>
+            <li class="student-item"><span class="avatar">06</span><span class="student-name">Correa Nuñez Felipe</span></li>
+            <li class="student-item"><span class="avatar">07</span><span class="student-name">Cuello Molina Ian Asaned</span></li>
+            <li class="student-item"><span class="avatar">08</span><span class="student-name">Cuy Obando Danna Valentina</span></li>
+            <li class="student-item"><span class="avatar">09</span><span class="student-name">Diaz Lazaro Nadal Alejandro</span></li>
+            <li class="student-item"><span class="avatar">10</span><span class="student-name">Doza Perdomo David Alfonso</span></li>
+            <li class="student-item"><span class="avatar">11</span><span class="student-name">Fuentes Godoy David Antonio Jr</span></li>
+            <li class="student-item"><span class="avatar">12</span><span class="student-name">Hernandez Rodriguez Maria Jose</span></li>
+            <li class="student-item"><span class="avatar">13</span><span class="student-name">Higuera Beltran Dario Andres</span></li>
+            <li class="student-item"><span class="avatar">14</span><span class="student-name">Hincapie Ussa Juan Daniel</span></li>
+            <li class="student-item"><span class="avatar">15</span><span class="student-name">Larrota Grandas Juan Jose</span></li>
+            <li class="student-item"><span class="avatar">16</span><span class="student-name">Marquez Navarro Julio Alberto</span></li>
+            <li class="student-item"><span class="avatar">17</span><span class="student-name">Martinez Blanco Eddy Santiago</span></li>
+            <li class="student-item"><span class="avatar">18</span><span class="student-name">Moncada Ferro Juan David</span></li>
+            <li class="student-item"><span class="avatar">19</span><span class="student-name">Mongui Ortiz Sergio Joseph</span></li>
+            <li class="student-item"><span class="avatar">20</span><span class="student-name">Naranjo Bautista Laura Daniela</span></li>
+            <li class="student-item"><span class="avatar">21</span><span class="student-name">Olivera Pineda Yeannis</span></li>
+            <li class="student-item"><span class="avatar">22</span><span class="student-name">Ordonez Rojas Aaron David</span></li>
+            <li class="student-item"><span class="avatar">23</span><span class="student-name">Pereira Enamorado Leonardo</span></li>
+            <li class="student-item"><span class="avatar">24</span><span class="student-name">Piñeros Prado Mauricio</span></li>
+            <li class="student-item"><span class="avatar">25</span><span class="student-name">Quesada Pacheco Joel</span></li>
+            <li class="student-item"><span class="avatar">26</span><span class="student-name">Reinoso Esquivel Angel Amadeus</span></li>
+            <li class="student-item"><span class="avatar">27</span><span class="student-name">Ricuarte Segura Sebastian Alejandro</span></li>
+            <li class="student-item"><span class="avatar">28</span><span class="student-name">Silva Mondragon Jhon Esteban</span></li>
+            <li class="student-item"><span class="avatar">29</span><span class="student-name">Sogamoso Martinez Brayan Estiven</span></li>
+            <li class="student-item"><span class="avatar">30</span><span class="student-name">Tapia Angel Stefany</span></li>
+            <li class="student-item"><span class="avatar">31</span><span class="student-name">Veles Betancourt Nathalia</span></li>
+            <li class="student-item"><span class="avatar">32</span><span class="student-name">Villada Lopez Dominic Alexander</span></li>
+          </ul>
+        </section>
+
+        <section id="communityView" class="view-section" hidden>
+          <div class="feed-head">
+            <div>
+              <p class="eyebrow">Publicaciones</p>
+              <h2>Comunidad</h2>
+            </div>
+            <button id="newPostButton" class="feed-add-button" type="button" aria-label="Crear publicacion">+</button>
+          </div>
+          <form id="postForm" class="composer feed-composer" hidden>
+            <textarea id="postInput" rows="3" placeholder="Publica algo para el grupo"></textarea>
+            <input id="postImageInput" type="file" accept="image/*" multiple />
+            <button type="submit">Publicar</button>
+          </form>
+          <p id="communityMessage" class="message" aria-live="polite"></p>
+          <div id="postList" class="post-list"></div>
+        </section>
+
+        <section id="tasksView" class="view-section" hidden>
+          <div class="feed-head">
+            <div>
+              <p class="eyebrow">Pendientes</p>
+              <h2>Tareas</h2>
+            </div>
+            <button id="newTaskButton" class="feed-add-button" type="button" aria-label="Crear tarea">+</button>
+          </div>
+          <form id="pendingTaskForm" class="task-composer feed-composer" hidden>
+            <input id="pendingTaskInput" type="text" placeholder="Nueva tarea pendiente" autocomplete="off" />
+            <input id="pendingTaskImageInput" type="file" accept="image/*" multiple />
+            <button type="submit">Agregar</button>
+          </form>
+          <p id="pendingTaskMessage" class="message" aria-live="polite"></p>
+          <ul id="pendingTaskList" class="pending-list"></ul>
+        </section>
+
+        <section id="scheduleView" class="view-section" hidden>
+          <div class="feed-head">
+            <div>
+              <p class="eyebrow">Semana</p>
+              <h2>Horario de clases</h2>
+            </div>
+          </div>
+
+          <div class="schedule-grid" aria-label="Horario semanal">
+            <article class="schedule-card">
+              <div class="schedule-day">
+                <span>Lunes</span>
+                <strong>8:00 a.m. - 6:30 p.m.</strong>
+              </div>
+              <div class="schedule-subjects">
+                <span>Programacion Orientada a Objetos</span>
+                <span>Electronica</span>
+                <span>Quimica</span>
+                <span>Filosofia</span>
+                <span>Trigonometria</span>
+              </div>
+            </article>
+
+            <article class="schedule-card">
+              <div class="schedule-day">
+                <span>Martes</span>
+                <strong>12:10 p.m. - 6:30 p.m.</strong>
+              </div>
+              <div class="schedule-subjects">
+                <span>Español</span>
+                <span>Metodologia de la investigacion</span>
+                <span>Quimica</span>
+                <span>Fisica</span>
+              </div>
+            </article>
+
+            <article class="schedule-card">
+              <div class="schedule-day">
+                <span>Miercoles</span>
+                <strong>12:10 p.m. - 6:30 p.m.</strong>
+              </div>
+              <div class="schedule-subjects">
+                <span>Informatica</span>
+                <span>Trigonometria</span>
+                <span>Fisica</span>
+                <span>Ingles</span>
+              </div>
+            </article>
+
+            <article class="schedule-card">
+              <div class="schedule-day">
+                <span>Jueves</span>
+                <strong>8:00 a.m. - 6:30 p.m.</strong>
+              </div>
+              <div class="schedule-subjects">
+                <span>Introduccion a la informatica</span>
+                <span>Electronica</span>
+                <span>Ciencias politicas</span>
+                <span>Etica</span>
+                <span>Ingles</span>
+                <span>Fisica</span>
+              </div>
+            </article>
+
+            <article class="schedule-card">
+              <div class="schedule-day">
+                <span>Viernes</span>
+                <strong>10:15 a.m. - 6:30 p.m.</strong>
+              </div>
+              <div class="schedule-subjects">
+                <span>Programacion Orientada a Objetos</span>
+                <span>Educacion Fisica</span>
+                <span>Español</span>
+                <span>Musica</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="gradeModal" class="modal" hidden>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">Notas</p>
+            <h2 id="modalTitle">Estudiante</h2>
+          </div>
+          <button id="closeModalButton" class="icon-button" type="button" aria-label="Cerrar">x</button>
+        </div>
+
+        <div class="average-box">
+          <span>Promedio general de materias</span>
+          <strong id="averageValue">Sin notas</strong>
+        </div>
+
+        <p id="gradeMessage" class="message" aria-live="polite"></p>
+        <div id="subjectList" class="subject-list"></div>
+      </section>
+    </div>
+
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="app.js?v=15"></script>
+
+<style>
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeOutOverlay {
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+</style>
+
+<script>
+function cerrarBienvenida() {
+  const overlay = document.getElementById("welcomeOverlay");
+
+  overlay.classList.add("fadeOutOverlay");
+
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 600);
+}
+</script>
+
+  </body>
+</html>
